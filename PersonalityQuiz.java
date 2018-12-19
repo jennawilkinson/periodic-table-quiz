@@ -1,6 +1,9 @@
-
 import java.awt.Color;
 import static java.awt.Color.green;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.Scanner;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -13,13 +16,21 @@ import static java.awt.Color.green;
  * @author 628037
  */
 public class PersonalityQuiz extends javax.swing.JFrame {
-
+    int score = 0;
     /**
      * Creates new form PersonalityQuiz
      */
     public PersonalityQuiz() {
-        initComponents();
-        
+        initComponents();   
+        try {
+            File file = new File("scores.txt");
+            Scanner sc = new Scanner(file);
+            String scorestxt = sc.nextLine();
+            ranking.setText(scorestxt);
+        } 
+        catch (FileNotFoundException e) {
+            System.out.println("File not found");   
+        }
     }
 
     /**
@@ -83,11 +94,11 @@ public class PersonalityQuiz extends javax.swing.JFrame {
         answrD8 = new javax.swing.JButton();
         answrD9 = new javax.swing.JButton();
         answrD10 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        name = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         ranking = new javax.swing.JTextArea();
-        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        nameBox = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         jLabel2.setText("jLabel2");
 
@@ -95,74 +106,75 @@ public class PersonalityQuiz extends javax.swing.JFrame {
         setBackground(new java.awt.Color(255, 0, 153));
         setForeground(new java.awt.Color(211, 204, 179));
 
-        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 102));
-        jLabel1.setText("PERIODIC TABLE QUIZ");
+        jLabel1.setForeground(new java.awt.Color(153, 0, 255));
+        jLabel1.setText(" PERIODIC TABLE QUIZ ");
+        jLabel1.setOpaque(true);
 
-        question1.setBackground(new java.awt.Color(102, 102, 102));
+        question1.setBackground(new java.awt.Color(255, 255, 255));
         question1.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        question1.setForeground(new java.awt.Color(255, 255, 102));
-        question1.setText("WHICH ELEMENT HAS THE SYMBOL K?");
+        question1.setForeground(new java.awt.Color(153, 0, 255));
+        question1.setText(" WHICH ELEMENT HAS THE SYMBOL K? ");
         question1.setOpaque(true);
 
-        question2.setBackground(new java.awt.Color(102, 102, 102));
+        question2.setBackground(new java.awt.Color(255, 255, 255));
         question2.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        question2.setForeground(new java.awt.Color(255, 255, 102));
-        question2.setText("WHICH ELEMENT HAS THE SYMBOL AU?");
+        question2.setForeground(new java.awt.Color(153, 0, 255));
+        question2.setText(" WHICH ELEMENT HAS THE SYMBOL AU? ");
         question2.setOpaque(true);
 
-        question3.setBackground(new java.awt.Color(102, 102, 102));
+        question3.setBackground(new java.awt.Color(255, 255, 255));
         question3.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        question3.setForeground(new java.awt.Color(255, 255, 102));
-        question3.setText("WHICH ELEMENT HAS THE SYMBOL W?");
+        question3.setForeground(new java.awt.Color(153, 0, 255));
+        question3.setText(" WHICH ELEMENT HAS THE SYMBOL W? ");
         question3.setOpaque(true);
 
-        question4.setBackground(new java.awt.Color(102, 102, 102));
+        question4.setBackground(new java.awt.Color(255, 255, 255));
         question4.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        question4.setForeground(new java.awt.Color(255, 255, 102));
-        question4.setText("WHICH ELEMENT HAS THE SYMBOL CO?");
+        question4.setForeground(new java.awt.Color(153, 0, 255));
+        question4.setText(" WHICH ELEMENT HAS THE SYMBOL CO? ");
         question4.setOpaque(true);
 
-        question5.setBackground(new java.awt.Color(102, 102, 102));
+        question5.setBackground(new java.awt.Color(255, 255, 255));
         question5.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        question5.setForeground(new java.awt.Color(255, 255, 102));
-        question5.setText("WHICH ELEMENT HAS THE SYMBOL MN?");
+        question5.setForeground(new java.awt.Color(153, 51, 255));
+        question5.setText(" WHICH ELEMENT HAS THE SYMBOL MN? ");
         question5.setOpaque(true);
 
-        question6.setBackground(new java.awt.Color(102, 102, 102));
+        question6.setBackground(new java.awt.Color(255, 255, 255));
         question6.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        question6.setForeground(new java.awt.Color(255, 255, 102));
-        question6.setText("WHICH ELEMENT HAS THE SYMBOL CN?");
+        question6.setForeground(new java.awt.Color(153, 0, 255));
+        question6.setText(" WHICH ELEMENT HAS THE SYMBOL CN? ");
         question6.setOpaque(true);
 
-        question7.setBackground(new java.awt.Color(102, 102, 102));
+        question7.setBackground(new java.awt.Color(255, 255, 255));
         question7.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        question7.setForeground(new java.awt.Color(255, 255, 102));
-        question7.setText("WHICH ELEMENT HAS THE SYMBOL RA?");
+        question7.setForeground(new java.awt.Color(153, 0, 255));
+        question7.setText(" WHICH ELEMENT HAS THE SYMBOL RA? ");
         question7.setOpaque(true);
 
-        question8.setBackground(new java.awt.Color(102, 102, 102));
+        question8.setBackground(new java.awt.Color(255, 255, 255));
         question8.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        question8.setForeground(new java.awt.Color(255, 255, 102));
-        question8.setText("WHICH ELEMENT HAS THE SYMBOL P?");
+        question8.setForeground(new java.awt.Color(153, 0, 255));
+        question8.setText(" WHICH ELEMENT HAS THE SYMBOL P? ");
         question8.setOpaque(true);
 
-        question9.setBackground(new java.awt.Color(102, 102, 102));
+        question9.setBackground(new java.awt.Color(255, 255, 255));
         question9.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        question9.setForeground(new java.awt.Color(255, 255, 102));
-        question9.setText("WHICH ELEMENT HAS THE SYMBOL B?");
+        question9.setForeground(new java.awt.Color(153, 0, 255));
+        question9.setText(" WHICH ELEMENT HAS THE SYMBOL B? ");
         question9.setOpaque(true);
 
-        question10.setBackground(new java.awt.Color(102, 102, 102));
+        question10.setBackground(new java.awt.Color(255, 255, 255));
         question10.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        question10.setForeground(new java.awt.Color(255, 255, 102));
-        question10.setText("WHICH ELEMENT HAS THE SYMBOL HG?");
+        question10.setForeground(new java.awt.Color(153, 51, 255));
+        question10.setText(" WHICH ELEMENT HAS THE SYMBOL HG? ");
         question10.setOpaque(true);
 
-        answerA1.setBackground(new java.awt.Color(102, 102, 102));
+        answerA1.setBackground(new java.awt.Color(255, 255, 255));
         answerA1.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        answerA1.setForeground(new java.awt.Color(255, 255, 102));
+        answerA1.setForeground(new java.awt.Color(153, 0, 255));
         answerA1.setText("Krypton");
         answerA1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -170,9 +182,9 @@ public class PersonalityQuiz extends javax.swing.JFrame {
             }
         });
 
-        answerA2.setBackground(new java.awt.Color(102, 102, 102));
+        answerA2.setBackground(new java.awt.Color(255, 255, 255));
         answerA2.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        answerA2.setForeground(new java.awt.Color(255, 255, 102));
+        answerA2.setForeground(new java.awt.Color(153, 0, 255));
         answerA2.setText("SILVER");
         answerA2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,9 +192,9 @@ public class PersonalityQuiz extends javax.swing.JFrame {
             }
         });
 
-        answerA3.setBackground(new java.awt.Color(102, 102, 102));
+        answerA3.setBackground(new java.awt.Color(255, 255, 255));
         answerA3.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        answerA3.setForeground(new java.awt.Color(255, 255, 102));
+        answerA3.setForeground(new java.awt.Color(153, 0, 255));
         answerA3.setText("YTTRIUM");
         answerA3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -190,9 +202,9 @@ public class PersonalityQuiz extends javax.swing.JFrame {
             }
         });
 
-        answerA4.setBackground(new java.awt.Color(102, 102, 102));
+        answerA4.setBackground(new java.awt.Color(255, 255, 255));
         answerA4.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        answerA4.setForeground(new java.awt.Color(255, 255, 102));
+        answerA4.setForeground(new java.awt.Color(153, 0, 255));
         answerA4.setText("CHROMIUM");
         answerA4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -200,9 +212,9 @@ public class PersonalityQuiz extends javax.swing.JFrame {
             }
         });
 
-        answerA5.setBackground(new java.awt.Color(102, 102, 102));
+        answerA5.setBackground(new java.awt.Color(255, 255, 255));
         answerA5.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        answerA5.setForeground(new java.awt.Color(255, 255, 102));
+        answerA5.setForeground(new java.awt.Color(153, 51, 255));
         answerA5.setText("MAGNESIUM");
         answerA5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -210,9 +222,9 @@ public class PersonalityQuiz extends javax.swing.JFrame {
             }
         });
 
-        answerA6.setBackground(new java.awt.Color(102, 102, 102));
+        answerA6.setBackground(new java.awt.Color(255, 255, 255));
         answerA6.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        answerA6.setForeground(new java.awt.Color(255, 255, 102));
+        answerA6.setForeground(new java.awt.Color(153, 0, 255));
         answerA6.setText("CALIFORNIUM");
         answerA6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -220,9 +232,9 @@ public class PersonalityQuiz extends javax.swing.JFrame {
             }
         });
 
-        answerA7.setBackground(new java.awt.Color(102, 102, 102));
+        answerA7.setBackground(new java.awt.Color(255, 255, 255));
         answerA7.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        answerA7.setForeground(new java.awt.Color(255, 255, 102));
+        answerA7.setForeground(new java.awt.Color(153, 0, 255));
         answerA7.setText("RADIUM");
         answerA7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -230,9 +242,9 @@ public class PersonalityQuiz extends javax.swing.JFrame {
             }
         });
 
-        answerA8.setBackground(new java.awt.Color(102, 102, 102));
+        answerA8.setBackground(new java.awt.Color(255, 255, 255));
         answerA8.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        answerA8.setForeground(new java.awt.Color(255, 255, 102));
+        answerA8.setForeground(new java.awt.Color(153, 0, 255));
         answerA8.setText("PHOSPHORUS");
         answerA8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -240,9 +252,9 @@ public class PersonalityQuiz extends javax.swing.JFrame {
             }
         });
 
-        answerA9.setBackground(new java.awt.Color(102, 102, 102));
+        answerA9.setBackground(new java.awt.Color(255, 255, 255));
         answerA9.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        answerA9.setForeground(new java.awt.Color(255, 255, 102));
+        answerA9.setForeground(new java.awt.Color(153, 0, 255));
         answerA9.setText("BARIUM");
         answerA9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -250,9 +262,9 @@ public class PersonalityQuiz extends javax.swing.JFrame {
             }
         });
 
-        answerA10.setBackground(new java.awt.Color(102, 102, 102));
+        answerA10.setBackground(new java.awt.Color(255, 255, 255));
         answerA10.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        answerA10.setForeground(new java.awt.Color(255, 255, 102));
+        answerA10.setForeground(new java.awt.Color(153, 51, 255));
         answerA10.setText("HELIUM");
         answerA10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -260,9 +272,9 @@ public class PersonalityQuiz extends javax.swing.JFrame {
             }
         });
 
-        answerB1.setBackground(new java.awt.Color(102, 102, 102));
+        answerB1.setBackground(new java.awt.Color(255, 255, 255));
         answerB1.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        answerB1.setForeground(new java.awt.Color(255, 255, 102));
+        answerB1.setForeground(new java.awt.Color(153, 0, 255));
         answerB1.setText("Potassium");
         answerB1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -270,9 +282,9 @@ public class PersonalityQuiz extends javax.swing.JFrame {
             }
         });
 
-        answerB2.setBackground(new java.awt.Color(102, 102, 102));
+        answerB2.setBackground(new java.awt.Color(255, 255, 255));
         answerB2.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        answerB2.setForeground(new java.awt.Color(255, 255, 102));
+        answerB2.setForeground(new java.awt.Color(153, 0, 255));
         answerB2.setText("ARGON");
         answerB2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -280,9 +292,9 @@ public class PersonalityQuiz extends javax.swing.JFrame {
             }
         });
 
-        answerB3.setBackground(new java.awt.Color(102, 102, 102));
+        answerB3.setBackground(new java.awt.Color(255, 255, 255));
         answerB3.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        answerB3.setForeground(new java.awt.Color(255, 255, 102));
+        answerB3.setForeground(new java.awt.Color(153, 0, 255));
         answerB3.setText("VANADIUM");
         answerB3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -290,9 +302,9 @@ public class PersonalityQuiz extends javax.swing.JFrame {
             }
         });
 
-        answerB4.setBackground(new java.awt.Color(102, 102, 102));
+        answerB4.setBackground(new java.awt.Color(255, 255, 255));
         answerB4.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        answerB4.setForeground(new java.awt.Color(255, 255, 102));
+        answerB4.setForeground(new java.awt.Color(153, 0, 255));
         answerB4.setText("COPPER");
         answerB4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -300,9 +312,9 @@ public class PersonalityQuiz extends javax.swing.JFrame {
             }
         });
 
-        answerB5.setBackground(new java.awt.Color(102, 102, 102));
+        answerB5.setBackground(new java.awt.Color(255, 255, 255));
         answerB5.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        answerB5.setForeground(new java.awt.Color(255, 255, 102));
+        answerB5.setForeground(new java.awt.Color(153, 51, 255));
         answerB5.setText("MERCURY");
         answerB5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -310,9 +322,9 @@ public class PersonalityQuiz extends javax.swing.JFrame {
             }
         });
 
-        answerB6.setBackground(new java.awt.Color(102, 102, 102));
+        answerB6.setBackground(new java.awt.Color(255, 255, 255));
         answerB6.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        answerB6.setForeground(new java.awt.Color(255, 255, 102));
+        answerB6.setForeground(new java.awt.Color(153, 0, 255));
         answerB6.setText("CALCIUM");
         answerB6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -320,9 +332,9 @@ public class PersonalityQuiz extends javax.swing.JFrame {
             }
         });
 
-        answerB7.setBackground(new java.awt.Color(102, 102, 102));
+        answerB7.setBackground(new java.awt.Color(255, 255, 255));
         answerB7.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        answerB7.setForeground(new java.awt.Color(255, 255, 102));
+        answerB7.setForeground(new java.awt.Color(153, 0, 255));
         answerB7.setText("RADON");
         answerB7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -330,9 +342,9 @@ public class PersonalityQuiz extends javax.swing.JFrame {
             }
         });
 
-        answerB8.setBackground(new java.awt.Color(102, 102, 102));
+        answerB8.setBackground(new java.awt.Color(255, 255, 255));
         answerB8.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        answerB8.setForeground(new java.awt.Color(255, 255, 102));
+        answerB8.setForeground(new java.awt.Color(153, 0, 255));
         answerB8.setText("POTASSIUM");
         answerB8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -340,9 +352,9 @@ public class PersonalityQuiz extends javax.swing.JFrame {
             }
         });
 
-        answerB9.setBackground(new java.awt.Color(102, 102, 102));
+        answerB9.setBackground(new java.awt.Color(255, 255, 255));
         answerB9.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        answerB9.setForeground(new java.awt.Color(255, 255, 102));
+        answerB9.setForeground(new java.awt.Color(153, 0, 255));
         answerB9.setText("BISMUTH");
         answerB9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -350,9 +362,9 @@ public class PersonalityQuiz extends javax.swing.JFrame {
             }
         });
 
-        answerB10.setBackground(new java.awt.Color(102, 102, 102));
+        answerB10.setBackground(new java.awt.Color(255, 255, 255));
         answerB10.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        answerB10.setForeground(new java.awt.Color(255, 255, 102));
+        answerB10.setForeground(new java.awt.Color(153, 51, 255));
         answerB10.setText("MERCURY");
         answerB10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -360,9 +372,9 @@ public class PersonalityQuiz extends javax.swing.JFrame {
             }
         });
 
-        answerC1.setBackground(new java.awt.Color(102, 102, 102));
+        answerC1.setBackground(new java.awt.Color(255, 255, 255));
         answerC1.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        answerC1.setForeground(new java.awt.Color(255, 255, 102));
+        answerC1.setForeground(new java.awt.Color(153, 0, 255));
         answerC1.setText("Neon");
         answerC1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -370,9 +382,9 @@ public class PersonalityQuiz extends javax.swing.JFrame {
             }
         });
 
-        answerC2.setBackground(new java.awt.Color(102, 102, 102));
+        answerC2.setBackground(new java.awt.Color(255, 255, 255));
         answerC2.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        answerC2.setForeground(new java.awt.Color(255, 255, 102));
+        answerC2.setForeground(new java.awt.Color(153, 0, 255));
         answerC2.setText("GOLD");
         answerC2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -380,9 +392,9 @@ public class PersonalityQuiz extends javax.swing.JFrame {
             }
         });
 
-        answerC3.setBackground(new java.awt.Color(102, 102, 102));
+        answerC3.setBackground(new java.awt.Color(255, 255, 255));
         answerC3.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        answerC3.setForeground(new java.awt.Color(255, 255, 102));
+        answerC3.setForeground(new java.awt.Color(153, 0, 255));
         answerC3.setText("TITANIUM");
         answerC3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -390,9 +402,9 @@ public class PersonalityQuiz extends javax.swing.JFrame {
             }
         });
 
-        answerC4.setBackground(new java.awt.Color(102, 102, 102));
+        answerC4.setBackground(new java.awt.Color(255, 255, 255));
         answerC4.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        answerC4.setForeground(new java.awt.Color(255, 255, 102));
+        answerC4.setForeground(new java.awt.Color(153, 0, 255));
         answerC4.setText("COBALT");
         answerC4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -400,9 +412,9 @@ public class PersonalityQuiz extends javax.swing.JFrame {
             }
         });
 
-        answerC5.setBackground(new java.awt.Color(102, 102, 102));
+        answerC5.setBackground(new java.awt.Color(255, 255, 255));
         answerC5.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        answerC5.setForeground(new java.awt.Color(255, 255, 102));
+        answerC5.setForeground(new java.awt.Color(153, 51, 255));
         answerC5.setText("MANGANESE");
         answerC5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -410,9 +422,9 @@ public class PersonalityQuiz extends javax.swing.JFrame {
             }
         });
 
-        answerC6.setBackground(new java.awt.Color(102, 102, 102));
+        answerC6.setBackground(new java.awt.Color(255, 255, 255));
         answerC6.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        answerC6.setForeground(new java.awt.Color(255, 255, 102));
+        answerC6.setForeground(new java.awt.Color(153, 0, 255));
         answerC6.setText("COPERNICIUM");
         answerC6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -420,9 +432,9 @@ public class PersonalityQuiz extends javax.swing.JFrame {
             }
         });
 
-        answerC7.setBackground(new java.awt.Color(102, 102, 102));
+        answerC7.setBackground(new java.awt.Color(255, 255, 255));
         answerC7.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        answerC7.setForeground(new java.awt.Color(255, 255, 102));
+        answerC7.setForeground(new java.awt.Color(153, 0, 255));
         answerC7.setText("RHODIUM");
         answerC7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -430,9 +442,9 @@ public class PersonalityQuiz extends javax.swing.JFrame {
             }
         });
 
-        answerC8.setBackground(new java.awt.Color(102, 102, 102));
+        answerC8.setBackground(new java.awt.Color(255, 255, 255));
         answerC8.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        answerC8.setForeground(new java.awt.Color(255, 255, 102));
+        answerC8.setForeground(new java.awt.Color(153, 0, 255));
         answerC8.setText("LEAD");
         answerC8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -440,9 +452,9 @@ public class PersonalityQuiz extends javax.swing.JFrame {
             }
         });
 
-        answerC9.setBackground(new java.awt.Color(102, 102, 102));
+        answerC9.setBackground(new java.awt.Color(255, 255, 255));
         answerC9.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        answerC9.setForeground(new java.awt.Color(255, 255, 102));
+        answerC9.setForeground(new java.awt.Color(153, 0, 255));
         answerC9.setText("BERYLLIUM");
         answerC9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -450,9 +462,9 @@ public class PersonalityQuiz extends javax.swing.JFrame {
             }
         });
 
-        answerC10.setBackground(new java.awt.Color(102, 102, 102));
+        answerC10.setBackground(new java.awt.Color(255, 255, 255));
         answerC10.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        answerC10.setForeground(new java.awt.Color(255, 255, 102));
+        answerC10.setForeground(new java.awt.Color(153, 51, 255));
         answerC10.setText("HYDROGEN");
         answerC10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -460,9 +472,9 @@ public class PersonalityQuiz extends javax.swing.JFrame {
             }
         });
 
-        answrD1.setBackground(new java.awt.Color(102, 102, 102));
+        answrD1.setBackground(new java.awt.Color(255, 255, 255));
         answrD1.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        answrD1.setForeground(new java.awt.Color(255, 255, 102));
+        answrD1.setForeground(new java.awt.Color(153, 0, 255));
         answrD1.setText("Gold");
         answrD1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -470,9 +482,9 @@ public class PersonalityQuiz extends javax.swing.JFrame {
             }
         });
 
-        answerD2.setBackground(new java.awt.Color(102, 102, 102));
+        answerD2.setBackground(new java.awt.Color(255, 255, 255));
         answerD2.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        answerD2.setForeground(new java.awt.Color(255, 255, 102));
+        answerD2.setForeground(new java.awt.Color(153, 0, 255));
         answerD2.setText("ALUMINUM");
         answerD2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -480,9 +492,9 @@ public class PersonalityQuiz extends javax.swing.JFrame {
             }
         });
 
-        answrD3.setBackground(new java.awt.Color(102, 102, 102));
+        answrD3.setBackground(new java.awt.Color(255, 255, 255));
         answrD3.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        answrD3.setForeground(new java.awt.Color(255, 255, 102));
+        answrD3.setForeground(new java.awt.Color(153, 0, 255));
         answrD3.setText("TUNGSTEN");
         answrD3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -490,9 +502,9 @@ public class PersonalityQuiz extends javax.swing.JFrame {
             }
         });
 
-        answrD4.setBackground(new java.awt.Color(102, 102, 102));
+        answrD4.setBackground(new java.awt.Color(255, 255, 255));
         answrD4.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        answrD4.setForeground(new java.awt.Color(255, 255, 102));
+        answrD4.setForeground(new java.awt.Color(153, 0, 255));
         answrD4.setText("CARBON");
         answrD4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -500,9 +512,9 @@ public class PersonalityQuiz extends javax.swing.JFrame {
             }
         });
 
-        answrD5.setBackground(new java.awt.Color(102, 102, 102));
+        answrD5.setBackground(new java.awt.Color(255, 255, 255));
         answrD5.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        answrD5.setForeground(new java.awt.Color(255, 255, 102));
+        answrD5.setForeground(new java.awt.Color(153, 51, 255));
         answrD5.setText("MOLYBDENUM");
         answrD5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -510,9 +522,9 @@ public class PersonalityQuiz extends javax.swing.JFrame {
             }
         });
 
-        answrD6.setBackground(new java.awt.Color(102, 102, 102));
+        answrD6.setBackground(new java.awt.Color(255, 255, 255));
         answrD6.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        answrD6.setForeground(new java.awt.Color(255, 255, 102));
+        answrD6.setForeground(new java.awt.Color(153, 0, 255));
         answrD6.setText("CHROMIUM");
         answrD6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -520,9 +532,9 @@ public class PersonalityQuiz extends javax.swing.JFrame {
             }
         });
 
-        answrD7.setBackground(new java.awt.Color(102, 102, 102));
+        answrD7.setBackground(new java.awt.Color(255, 255, 255));
         answrD7.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        answrD7.setForeground(new java.awt.Color(255, 255, 102));
+        answrD7.setForeground(new java.awt.Color(153, 0, 255));
         answrD7.setText("RUBIDIUM");
         answrD7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -530,9 +542,9 @@ public class PersonalityQuiz extends javax.swing.JFrame {
             }
         });
 
-        answrD8.setBackground(new java.awt.Color(102, 102, 102));
+        answrD8.setBackground(new java.awt.Color(255, 255, 255));
         answrD8.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        answrD8.setForeground(new java.awt.Color(255, 255, 102));
+        answrD8.setForeground(new java.awt.Color(153, 0, 255));
         answrD8.setText("PLATINUM");
         answrD8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -540,9 +552,9 @@ public class PersonalityQuiz extends javax.swing.JFrame {
             }
         });
 
-        answrD9.setBackground(new java.awt.Color(102, 102, 102));
+        answrD9.setBackground(new java.awt.Color(255, 255, 255));
         answrD9.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        answrD9.setForeground(new java.awt.Color(255, 255, 102));
+        answrD9.setForeground(new java.awt.Color(153, 0, 255));
         answrD9.setText("BORON");
         answrD9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -550,9 +562,9 @@ public class PersonalityQuiz extends javax.swing.JFrame {
             }
         });
 
-        answrD10.setBackground(new java.awt.Color(102, 102, 102));
+        answrD10.setBackground(new java.awt.Color(255, 255, 255));
         answrD10.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 15)); // NOI18N
-        answrD10.setForeground(new java.awt.Color(255, 255, 102));
+        answrD10.setForeground(new java.awt.Color(153, 51, 255));
         answrD10.setText("MAGNESIUM");
         answrD10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -560,29 +572,34 @@ public class PersonalityQuiz extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel3.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 102));
-        jLabel3.setText("NAME:");
-        jLabel3.setOpaque(true);
-
-        name.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 14)); // NOI18N
-        name.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameActionPerformed(evt);
-            }
-        });
-
         ranking.setColumns(20);
         ranking.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 18)); // NOI18N
+        ranking.setForeground(new java.awt.Color(153, 51, 255));
         ranking.setRows(5);
         jScrollPane1.setViewportView(ranking);
 
-        jLabel4.setBackground(new java.awt.Color(102, 102, 102));
-        jLabel4.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 102));
-        jLabel4.setText("RANKINGS:");
-        jLabel4.setOpaque(true);
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 20)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(153, 51, 255));
+        jLabel3.setText(" Name: ");
+        jLabel3.setOpaque(true);
+
+        nameBox.setForeground(new java.awt.Color(153, 0, 255));
+        nameBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameBoxActionPerformed(evt);
+            }
+        });
+
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setFont(new java.awt.Font("Gill Sans MT Condensed", 0, 22)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(153, 0, 255));
+        jButton1.setText("SCORES:");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -596,25 +613,18 @@ public class PersonalityQuiz extends javax.swing.JFrame {
                             .addComponent(question4)
                             .addComponent(answrD4)
                             .addComponent(answerC4)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(answerA4)
-                                    .addComponent(answerB4))
-                                .addGap(366, 366, 366)))
+                            .addComponent(answerB4)
+                            .addComponent(answerA4))
+                        .addGap(222, 222, 222)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(question9)
-                            .addComponent(answerA9)
-                            .addComponent(answerB9)
                             .addComponent(answrD9)
-                            .addComponent(answerC9))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(142, 142, 142))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(28, 28, 28))))
+                            .addComponent(answerB9)
+                            .addComponent(answerC9)
+                            .addComponent(question9)
+                            .addComponent(answerA9))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(70, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(question1)
@@ -624,67 +634,75 @@ public class PersonalityQuiz extends javax.swing.JFrame {
                             .addComponent(answrD1)
                             .addComponent(question3)
                             .addComponent(answerA3)
-                            .addComponent(answerC3)
                             .addComponent(answerB3)
-                            .addComponent(answrD3))
-                        .addGap(276, 276, 276)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(answerA6)
-                                .addComponent(answerC6, javax.swing.GroupLayout.Alignment.LEADING))
-                            .addComponent(answrD6)
-                            .addComponent(question8)
-                            .addComponent(answerB6)
-                            .addComponent(answerB7)
-                            .addComponent(answerC7)
-                            .addComponent(answerA7)
-                            .addComponent(answrD7)
-                            .addComponent(question7)
-                            .addComponent(answrD8)
-                            .addComponent(answerC8)
-                            .addComponent(answerB8)
-                            .addComponent(answerA8)
-                            .addComponent(question6))
+                            .addComponent(answrD3)
+                            .addComponent(answerC3))
+                        .addGap(224, 224, 224)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 216, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(question5)
-                                    .addComponent(question10)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(answerC10)
-                                        .addComponent(answerB10, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(answerA10, javax.swing.GroupLayout.Alignment.LEADING))
-                                    .addComponent(answrD10)
-                                    .addComponent(answerA5)
-                                    .addComponent(answerB5)
-                                    .addComponent(answerC5)
-                                    .addComponent(answrD5))
-                                .addContainerGap(35, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(answerA6)
+                                        .addComponent(answerC6, javax.swing.GroupLayout.Alignment.LEADING))
+                                    .addComponent(answrD6)
+                                    .addComponent(question8)
+                                    .addComponent(answerB6)
+                                    .addComponent(answerB7)
+                                    .addComponent(answerC7)
+                                    .addComponent(answerA7)
+                                    .addComponent(answrD7)
+                                    .addComponent(question7)
+                                    .addComponent(answrD8)
+                                    .addComponent(answerC8)
+                                    .addComponent(question6))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 184, Short.MAX_VALUE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(question5)
+                                            .addComponent(question10)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(answerC10)
+                                                .addComponent(answerB10, javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(answerA10, javax.swing.GroupLayout.Alignment.LEADING))
+                                            .addComponent(answerA5)
+                                            .addComponent(answerB5)
+                                            .addComponent(answerC5)
+                                            .addComponent(answrD5)
+                                            .addComponent(answrD10))
+                                        .addContainerGap(86, Short.MAX_VALUE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jButton1)
+                                        .addGap(170, 170, 170))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(answerB8)
+                                    .addComponent(answerA8))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(67, 67, 67))))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(nameBox, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(95, 95, 95))))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(answerA2)
-                    .addComponent(answerB2)
-                    .addComponent(answerC2)
-                    .addComponent(answerD2)
-                    .addComponent(question2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(answerA2)
+                            .addComponent(answerB2)
+                            .addComponent(answerC2)
+                            .addComponent(answerD2)
+                            .addComponent(question2)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(348, 348, 348)
+                        .addComponent(jLabel1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(348, 348, 348))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(5, 5, 5)
+                .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -730,7 +748,7 @@ public class PersonalityQuiz extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(answrD6)
-                                        .addGap(18, 19, Short.MAX_VALUE))
+                                        .addGap(18, 18, Short.MAX_VALUE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(answrD5)
@@ -761,271 +779,286 @@ public class PersonalityQuiz extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(question8)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(question3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(answerA3)
-                            .addComponent(answerA8))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(answerB3)
-                            .addComponent(answerB8)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel3)
-                                .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(answerC3)
-                            .addComponent(answerC8))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(answrD3)
-                            .addComponent(answrD8))))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(question4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(answerA4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(answerB4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(answerC4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(answrD4))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(question9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(answerA9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(answerB9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(answerC9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(answrD9)))
-                .addGap(33, 33, 33))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(question3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(answerA3)
+                                    .addComponent(answerA8))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(answerB3)
+                                    .addComponent(answerB8))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel3)
+                                    .addComponent(nameBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(26, 26, 26)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(answerC8)
+                                    .addComponent(answerC3))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(answrD3)
+                                    .addComponent(answrD8))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(question9)
+                                    .addComponent(question4))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(answerA9)
+                                    .addComponent(answerA4))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(answerB9)
+                                    .addComponent(answerB4))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(answerC9)
+                                    .addComponent(answerC4))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(answrD9)
+                                    .addComponent(answrD4)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void answerC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerC1ActionPerformed
-        // TODO add your handling code here:
         question1.setBackground(Color.red);
+        score -= 10;
     }//GEN-LAST:event_answerC1ActionPerformed
 
     private void answerC2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerC2ActionPerformed
-        // TODO add your handling code here:
         question2.setBackground(Color.green);
+        score += 10;
     }//GEN-LAST:event_answerC2ActionPerformed
 
     private void answerC3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerC3ActionPerformed
-        // TODO add your handling code here:
         question3.setBackground(Color.red);
+        score -= 10;
     }//GEN-LAST:event_answerC3ActionPerformed
 
     private void answerC4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerC4ActionPerformed
-        // TODO add your handling code here:
         question4.setBackground(Color.green);
+        score += 10;
     }//GEN-LAST:event_answerC4ActionPerformed
 
     private void answerC5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerC5ActionPerformed
-        // TODO add your handling code here:
         question5.setBackground(Color.green);
+        score += 10;
     }//GEN-LAST:event_answerC5ActionPerformed
 
     private void answerC6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerC6ActionPerformed
-        // TODO add your handling code here:
         question6.setBackground(Color.green);
+        score += 10;
     }//GEN-LAST:event_answerC6ActionPerformed
 
     private void answerC7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerC7ActionPerformed
-        // TODO add your handling code here:
         question7.setBackground(Color.red);
+        score -= 10;
     }//GEN-LAST:event_answerC7ActionPerformed
 
     private void answerC8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerC8ActionPerformed
-        // TODO add your handling code here:
         question8.setBackground(Color.red);
+        score -= 10;
     }//GEN-LAST:event_answerC8ActionPerformed
 
     private void answerC9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerC9ActionPerformed
-        // TODO add your handling code here:
         question9.setBackground(Color.red);
+        score -= 10;
     }//GEN-LAST:event_answerC9ActionPerformed
 
     private void answerC10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerC10ActionPerformed
-        // TODO add your handling code here:
         question10.setBackground(Color.red);
+        score -= 10;
     }//GEN-LAST:event_answerC10ActionPerformed
 
     private void answrD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answrD1ActionPerformed
-        // TODO add your handling code here:
         question1.setBackground(Color.red);
+        score -= 10;
     }//GEN-LAST:event_answrD1ActionPerformed
 
     private void answerD2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerD2ActionPerformed
-        // TODO add your handling code here:
         question2.setBackground(Color.red);
+        score -= 10;
     }//GEN-LAST:event_answerD2ActionPerformed
 
     private void answrD3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answrD3ActionPerformed
-        // TODO add your handling code here:
         question3.setBackground(Color.green);
+        score += 10;
     }//GEN-LAST:event_answrD3ActionPerformed
 
     private void answrD4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answrD4ActionPerformed
-        // TODO add your handling code here:
         question4.setBackground(Color.red);
+        score -= 10;
     }//GEN-LAST:event_answrD4ActionPerformed
 
     private void answrD5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answrD5ActionPerformed
-        // TODO add your handling code here:
         question5.setBackground(Color.red);
+        score -= 10;
     }//GEN-LAST:event_answrD5ActionPerformed
 
     private void answrD6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answrD6ActionPerformed
-        // TODO add your handling code here:
         question6.setBackground(Color.red);
+        score -= 10;
     }//GEN-LAST:event_answrD6ActionPerformed
 
     private void answrD7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answrD7ActionPerformed
-        // TODO add your handling code here:
         question7.setBackground(Color.red);
+        score -= 10;
     }//GEN-LAST:event_answrD7ActionPerformed
 
     private void answrD8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answrD8ActionPerformed
-        // TODO add your handling code here:
         question8.setBackground(Color.red);
+        score -= 10;
     }//GEN-LAST:event_answrD8ActionPerformed
 
     private void answrD9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answrD9ActionPerformed
-        // TODO add your handling code here:
         question9.setBackground(Color.green);
+        score += 10;
     }//GEN-LAST:event_answrD9ActionPerformed
 
     private void answrD10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answrD10ActionPerformed
-        // TODO add your handling code here:
         question10.setBackground(Color.red);
+        score -= 10;
     }//GEN-LAST:event_answrD10ActionPerformed
 
     private void answerA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerA1ActionPerformed
-        // TODO add your handling code here:
         question1.setBackground(Color.red);
+        score -= 10;
     }//GEN-LAST:event_answerA1ActionPerformed
 
     private void answerA2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerA2ActionPerformed
-        // TODO add your handling code here:
         question2.setBackground(Color.red);
+        score -= 10;
     }//GEN-LAST:event_answerA2ActionPerformed
 
     private void answerA5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerA5ActionPerformed
-        // TODO add your handling code here:
         question5.setBackground(Color.red);
+        score -= 10;
     }//GEN-LAST:event_answerA5ActionPerformed
 
     private void answerA8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerA8ActionPerformed
-        // TODO add your handling code here:
         question8.setBackground(Color.green);
+        score += 10;
     }//GEN-LAST:event_answerA8ActionPerformed
 
     private void answerB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerB1ActionPerformed
-        // TODO add your handling code here:
         question1.setBackground(Color.green);
+        score += 10;
     }//GEN-LAST:event_answerB1ActionPerformed
 
     private void answerB2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerB2ActionPerformed
-        // TODO add your handling code here:
         question2.setBackground(Color.red);
+        score -= 10;
     }//GEN-LAST:event_answerB2ActionPerformed
 
     private void answerA3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerA3ActionPerformed
-        // TODO add your handling code here:
         question3.setBackground(Color.red);
+        score -= 10;
     }//GEN-LAST:event_answerA3ActionPerformed
 
     private void answerB3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerB3ActionPerformed
-        // TODO add your handling code here:
         question3.setBackground(Color.red);
+        score -= 10;
     }//GEN-LAST:event_answerB3ActionPerformed
 
     private void answerA4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerA4ActionPerformed
-        // TODO add your handling code here:
         question4.setBackground(Color.red);
+        score -= 10;
     }//GEN-LAST:event_answerA4ActionPerformed
 
     private void answerB4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerB4ActionPerformed
-        // TODO add your handling code here:
         question4.setBackground(Color.red);
+        score -= 10;
     }//GEN-LAST:event_answerB4ActionPerformed
 
     private void answerB5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerB5ActionPerformed
-        // TODO add your handling code here:
         question5.setBackground(Color.red);
+        score -= 10;
     }//GEN-LAST:event_answerB5ActionPerformed
 
     private void answerA6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerA6ActionPerformed
-        // TODO add your handling code here:
         question6.setBackground(Color.red);
+        score -= 10;
     }//GEN-LAST:event_answerA6ActionPerformed
 
     private void answerB6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerB6ActionPerformed
-        // TODO add your handling code here:
         question6.setBackground(Color.red);
+        score -= 10;
     }//GEN-LAST:event_answerB6ActionPerformed
 
     private void answerA7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerA7ActionPerformed
-        // TODO add your handling code here:
         question7.setBackground(Color.green);
+        score += 10;     
     }//GEN-LAST:event_answerA7ActionPerformed
 
     private void answerB7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerB7ActionPerformed
-        // TODO add your handling code here:
         question7.setBackground(Color.red);
+        score -= 10;
     }//GEN-LAST:event_answerB7ActionPerformed
 
     private void answerB8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerB8ActionPerformed
-        // TODO add your handling code here:
         question8.setBackground(Color.red);
+        score -= 10;
     }//GEN-LAST:event_answerB8ActionPerformed
 
     private void answerA9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerA9ActionPerformed
-        // TODO add your handling code here:
         question9.setBackground(Color.red);
+        score -= 10;
     }//GEN-LAST:event_answerA9ActionPerformed
 
     private void answerB9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerB9ActionPerformed
-        // TODO add your handling code here:
         question9.setBackground(Color.red);
+        score -= 10;
     }//GEN-LAST:event_answerB9ActionPerformed
 
     private void answerA10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerA10ActionPerformed
-        // TODO add your handling code here:
         question10.setBackground(Color.red);
+        score -= 10;
     }//GEN-LAST:event_answerA10ActionPerformed
 
     private void answerB10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerB10ActionPerformed
-        // TODO add your handling code here:
         question10.setBackground(Color.green);
+        score += 10;
     }//GEN-LAST:event_answerB10ActionPerformed
 
-    private void nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameActionPerformed
-        // TODO add your handling code here:
+    private void nameBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameBoxActionPerformed
         
-    }//GEN-LAST:event_nameActionPerformed
+    }//GEN-LAST:event_nameBoxActionPerformed
 
-    private void rankingActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-        if () {
-        ranking.setText("");
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String name = (nameBox.getText());
+        ranking.setText(name + ": " + score);
+        
+        String pathname = "scores.txt";
+        File file = new File(pathname);
+        PrintWriter output = null;
+        try {
+           output = new PrintWriter(file);
         }
+        catch (FileNotFoundException ex) {
+           System.out.println("Cannot create " + pathname);
+           System.exit(1);  // quit the program
+        }
+        output.print(ranking.getText());
+        output.close();
+    }//GEN-LAST:event_jButton1ActionPerformed
+    
+    private void rankingActionPerformed(java.awt.event.ActionEvent evt) {
+        
     }
     
     /**
@@ -1104,12 +1137,12 @@ public class PersonalityQuiz extends javax.swing.JFrame {
     private javax.swing.JButton answrD7;
     private javax.swing.JButton answrD8;
     private javax.swing.JButton answrD9;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField name;
+    private javax.swing.JTextField nameBox;
     private javax.swing.JLabel question1;
     private javax.swing.JLabel question10;
     private javax.swing.JLabel question2;
